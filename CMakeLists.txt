@@ -16,6 +16,11 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        paddle.h
+        paddle.cpp
+        brick.h
+        .gitignore
+        brick.cpp
         mainwindow.ui
 )
 
