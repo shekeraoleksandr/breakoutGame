@@ -8,21 +8,23 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_PREFIX_PATH "C:\\Qt\\6.5.0\\mingw_64\\lib\\cmake\\")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-        main.cpp
-        paddle.h
-        paddle.cpp
-        ball.h
-        ball.cpp
-        brick.h
-        breakout.h
-        breakout.cpp
+        src/main.cpp
+        include/paddle.h
+        src/paddle.cpp
+        include/ball.h
+        src/ball.cpp
+        include/brick.h
+        include/breakout.h
+        src/breakout.cpp
         .gitignore
-        brick.cpp
+        src/brick.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

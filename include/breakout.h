@@ -2,7 +2,7 @@
 #define BREAKOUT_H
 #include <QWidget>
 #include <QKeyEvent>
-#include "ball.h"
+#include "include/ball.h"
 #include "brick.h"
 #include "paddle.h"
 

@@ -1,12 +1,12 @@
 #include <iostream>
-#include "ball.h"
+#include "include/ball.h"
 
 Ball::Ball() {
 
     xdir = 1;
     ydir = -1;
 
-    image.load("../breakoutgame/ball.png");
+    image.load("../image/ball.png");
 
     rect = image.rect();
     resetState();

@@ -1,9 +1,9 @@
 #include <iostream>
-#include "brick.h"
+#include "include/brick.h"
 
 Brick::Brick(int x, int y) {
 
-    image.load("../breakoutgame/brick.png");
+    image.load("../image/brick.png");
     destroyed = false;
     rect = image.rect();
     rect.translate(x, y);

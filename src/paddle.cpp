@@ -1,10 +1,10 @@
 #include <iostream>
-#include "paddle.h"
+#include "include/paddle.h"
 
 Paddle::Paddle() {
 
     dx = 0;
-    image.load("../breakoutgame/paddle.png");
+    image.load("../image/paddle.png");
 
     rect = image.rect();
     resetState();
