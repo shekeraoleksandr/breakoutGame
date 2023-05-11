@@ -14,14 +14,15 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
         paddle.h
         paddle.cpp
+        ball.h
+        ball.cpp
         brick.h
+        breakout.h
+        breakout.cpp
         .gitignore
         brick.cpp
-        mainwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
