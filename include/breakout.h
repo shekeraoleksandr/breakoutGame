@@ -12,6 +12,12 @@ public:
     Breakout(QWidget *parent = 0);
     ~Breakout();
 
+public:
+    bool isGameStarted();
+    bool isGamePaused();
+    bool isGameStopped();
+    bool isGameWon();
+
 protected:
     void paintEvent(QPaintEvent *);
     void timerEvent(QTimerEvent *);

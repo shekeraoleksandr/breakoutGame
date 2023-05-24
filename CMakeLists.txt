@@ -25,7 +25,11 @@ set(PROJECT_SOURCES
         src/brick.cpp
         src/main.cpp
         src/paddle.cpp
-)
+        )
+
+add_library(breakout_test_example ${PROJECT_SOURCES})
+enable_testing()
+add_subdirectory(tests)
 
 add_executable(breakoutGame ${PROJECT_SOURCES})
 

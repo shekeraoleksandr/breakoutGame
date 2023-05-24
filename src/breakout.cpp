@@ -282,3 +282,19 @@ void Breakout::checkCollision() {
         }
     }
 }
+
+bool Breakout::isGameStarted() {
+    return gameStarted;
+}
+
+bool Breakout::isGamePaused() {
+    return paused;
+}
+
+bool Breakout::isGameStopped() {
+    return gameOver;
+}
+
+bool Breakout::isGameWon() {
+    return gameWon;
+}
