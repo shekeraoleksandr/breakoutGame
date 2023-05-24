@@ -23,8 +23,8 @@ jobs:
           version: 1.59.0
       - id: patch_conan
         run: conan profile new default --detect && conan profile update settings.compiler.libcxx=libstdc++11 default
-      - id: run_conan
-        run: cd ${GITHUB_WORKSPACE}/test && conan install --generator cmake_find_package --install-folder ../build_test/conan-dependencies .
+#      - id: run_conan
+#        run: cd ${GITHUB_WORKSPACE}/test && conan install --generator cmake_find_package --install-folder ../build_test/conan-dependencies .
       - id: cmake
         run: cd ${GITHUB_WORKSPACE}/test && cmake -DTEST_QT=ON -B../build_test -S.
       - id: make
