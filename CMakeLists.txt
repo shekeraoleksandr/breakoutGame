@@ -29,7 +29,7 @@ set(PROJECT_SOURCES
 
 add_library(breakout_test_example ${PROJECT_SOURCES})
 enable_testing()
-add_subdirectory(tests)
+add_subdirectory(test)
 
 add_executable(breakoutGame ${PROJECT_SOURCES})
 
