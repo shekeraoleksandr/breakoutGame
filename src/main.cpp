@@ -1,4 +1,4 @@
-#include "include/breakout.h"
+#include "../include/breakout.h"
 
 #include <QApplication>
 

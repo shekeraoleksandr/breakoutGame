@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/brick.h"
+#include "../include/brick.h"
 
 Brick::Brick(int x, int y) {
 

@@ -1,6 +1,6 @@
 #include <QPainter>
 #include <QApplication>
-#include "include/breakout.h"
+#include "../include/breakout.h"
 
 Breakout::Breakout(QWidget *parent)
     : QWidget(parent) {
