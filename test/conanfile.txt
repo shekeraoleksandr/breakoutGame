@@ -1,7 +1,0 @@
-[requires]
-gtest/cci.20210126
-qt/6.5.0
-cmake/3.26.3
-
-[generators]
-cmake
