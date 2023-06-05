@@ -6,14 +6,12 @@ on:
       - master
     paths:
       - CMakeLists.txt
-      - conan.cmake
       - include/**
       - src/**
       - tests/**
   pull_request:
     paths:
       - CMakeLists.txt
-      - conan.cmake
       - include/**
       - src/**
       - tests/**
