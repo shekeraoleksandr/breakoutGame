@@ -13,6 +13,8 @@ add_library(BreakoutLib STATIC
         ${HEADER_FILES}
         )
 
+set_target_properties(BreakoutLib PROPERTIES LINKER_LANGUAGE CXX)
+
 target_link_libraries(BreakoutLib
         Qt6::Core
         Qt6::Gui
