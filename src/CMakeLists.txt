@@ -6,6 +6,10 @@ set(SOURCE_FILES
         paddle.cpp
         )
 
+set(HEADER_FILES
+        ../include/breakout.h
+        )
+
 set(QRC_SOURCE_FILES
         ../res/breakout.qrc
         )
@@ -21,6 +25,7 @@ find_package(Qt6 COMPONENTS Core Gui Widgets REQUIRED)
 
 add_executable(breakoutSrc WIN32 MACOSX_BUNDLE
         ${SOURCE_FILES}
+        ${HEADER_FILES}
         ${QRC_SOURCE_FILES}
         )
 

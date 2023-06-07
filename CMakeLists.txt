@@ -14,7 +14,8 @@ conan_cmake_run(REQUIRES
         libffi/3.4.2
         BASIC_SETUP CMAKE_TARGETS
         GENERATORS cmake_find_package cmake_paths
-        BUILD missing)
+        BUILD missing
+        )
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
@@ -38,3 +39,11 @@ if (BUILD_UNIT_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif()
+
+#find_package(Qt6 COMPONENTS Widgets REQUIRED)
+#
+#add_executable(breakoutGame src/main.cpp)
+#target_link_libraries(breakoutGame
+#        PRIVATE
+#        BreakoutLib
+#        Qt6::Widgets)
