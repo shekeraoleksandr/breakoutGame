@@ -41,10 +41,12 @@ jobs:
           cmake --version
 
       - name: Get Conan
-        uses: turtlebrowser/get-conan@v1.0
+        uses: turtlebrowser/get-conan@main
+        with:
+          version: 1.60.0
 
       - name: Add custom conan repo
-        run: conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+        run: conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
 
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
