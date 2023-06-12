@@ -99,15 +99,15 @@ void Breakout::keyReleaseEvent(QKeyEvent *e) {
     int dx = 0;
 
     switch (e->key()) {
-    case Qt::Key_Left:
-        dx = 0;
-        paddle->setDx(dx);
-        break;
+        case Qt::Key_Left:
+            dx = 0;
+            paddle->setDx(dx);
+            break;
 
-    case Qt::Key_Right:
-        dx = 0;
-        paddle->setDx(dx);
-        break;
+        case Qt::Key_Right:
+            dx = 0;
+            paddle->setDx(dx);
+            break;
     }
 }
 
@@ -116,36 +116,36 @@ void Breakout::keyPressEvent(QKeyEvent *e) {
     int dx = 0;
 
     switch (e->key()) {
-    case Qt::Key_Left:
+        case Qt::Key_Left:
 
-        dx = -1;
-        paddle->setDx(dx);
+            dx = -1;
+            paddle->setDx(dx);
 
-        break;
+            break;
 
-    case Qt::Key_Right:
+        case Qt::Key_Right:
 
-        dx = 1;
-        paddle->setDx(dx);
-        break;
+            dx = 1;
+            paddle->setDx(dx);
+            break;
 
-    case Qt::Key_P:
+        case Qt::Key_P:
 
-        pauseGame();
-        break;
+            pauseGame();
+            break;
 
-    case Qt::Key_Space:
+        case Qt::Key_Space:
 
-        startGame();
-        break;
+            startGame();
+            break;
 
-    case Qt::Key_Escape:
+        case Qt::Key_Escape:
 
-        qApp->exit();
-        break;
+            qApp->exit();
+            break;
 
-    default:
-        QWidget::keyPressEvent(e);
+        default:
+            QWidget::keyPressEvent(e);
     }
 }
 

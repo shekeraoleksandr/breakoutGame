@@ -6,7 +6,7 @@ Ball::Ball() {
     xdir = 1;
     ydir = -1;
 
-    image.load("../image/ball.png");
+    image.load("../images/ball.png");
 
     rect = image.rect();
     resetState();

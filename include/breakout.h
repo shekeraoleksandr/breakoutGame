@@ -46,6 +46,8 @@ private:
     bool gameWon;
     bool gameStarted;
     bool paused;
+
+    friend class TestBreakout;
 };
 
 #endif // BREAKOUT_H
