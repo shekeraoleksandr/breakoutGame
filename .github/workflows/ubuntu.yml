@@ -34,7 +34,7 @@ jobs:
         run: cmake -E make_directory ${{github.workspace}}/build
 
       - name: Set Conan package manager mode to install
-        run: echo "tools.system.package_manager:mode=install" >> $CONAN_USER_HOME/.conan/profiles/default
+        run: echo "tools.system.package_manager:mode=install" >> $HOME/.conan/profiles/default
 
       - name: Configure CMake
         shell: bash
