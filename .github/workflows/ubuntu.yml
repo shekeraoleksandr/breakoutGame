@@ -34,16 +34,20 @@ jobs:
         run: cmake -E make_directory ${{github.workspace}}/build
 
       - name: Mode Install
-        shell: bash -c "tools.system.package_manager:mode=install"
+        run: echo "::set-env name=TOOLS_SYSTEM_PACKAGE_MANAGER_MODE::install"
+
 
 
       - name: Configure CMake
         shell: bash
         working-directory: ${{github.workspace}}/build
-        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_UNIT_TESTS=ON
+        run: |
+          cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_UNIT_TESTS=ON
         env:
-          CC:   gcc-9
-          CXX:  g++-9
+          CC: gcc-9
+          CXX: g++-9
+          TOOLS_SYSTEM_PACKAGE_MANAGER_MODE: ${{ env.TOOLS_SYSTEM_PACKAGE_MANAGER_MODE }}
+
 
       - name: Build
         working-directory: ${{github.workspace}}/build
