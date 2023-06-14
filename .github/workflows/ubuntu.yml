@@ -33,8 +33,16 @@ jobs:
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
 
-      - name: Set Conan package manager mode to install
-        run: echo "tools.system.package_manager:mode=install" >> \\wsl.localhost\Ubuntu\home\oleksandrshekera\.conan\profiles\default
+      - name: Create custom Conan profile
+        run: |
+          mkdir $HOME/.conan/profiles
+          echo "[settings]" > $HOME/.conan/profiles/myprofile
+          echo "os=Linux" >> $HOME/.conan/profiles/myprofile
+          echo "[conf]" >> $HOME/.conan/profiles/myprofile
+          echo "tools.system.package_manager:mode=install" >> $HOME/.conan/profiles/myprofile
+
+      - name: Install dependencies
+        run: conan install . -if build --profile $HOME/.conan/profiles/myprofile
 
       - name: Configure CMake
         shell: bash
