@@ -34,8 +34,8 @@ jobs:
         run: cmake -E make_directory ${{github.workspace}}/build
 
       - name: Mode Install
-        shell: bash
-        run: -c tools.system.package_manager:mode=install
+        shell: bash -c "tools.system.package_manager:mode=install"
+
 
       - name: Configure CMake
         shell: bash
