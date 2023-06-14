@@ -1,20 +1,6 @@
 name: ubuntu
 
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - CMakeLists.txt
-      - include/**
-      - src/**
-      - tests/**
-  pull_request:
-    paths:
-      - CMakeLists.txt
-      - include/**
-      - src/**
-      - tests/**
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build-ubuntu:
