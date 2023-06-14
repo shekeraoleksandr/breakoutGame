@@ -1,1 +1,3 @@
-[![CMake](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/cmake.yml/badge.svg)](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/cmake.yml)
+[![ubuntu](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/ubuntu.yml)
+[![windows](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/windows.yml/badge.svg)](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/windows.yml)
+[![macos](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/macos.yml/badge.svg)](https://github.com/shekeraoleksandr/breakoutGame/actions/workflows/macos.yml)
