@@ -41,8 +41,8 @@ jobs:
           echo "[conf]" >> $HOME/.conan/profiles/myprofile
           echo "tools.system.package_manager:mode=install" >> $HOME/.conan/profiles/myprofile
 
-      - name: Install dependencies
-        run: conan install /mnt/c/Users/oleks/Desktop/c++/breakoutgame/breakoutgame/build/conanfile.txt -if build --profile $HOME/.conan/profiles/myprofile
+#      - name: Install dependencies
+#        run: conan install /mnt/c/Users/oleks/Desktop/c++/breakoutgame/breakoutgame/build/conanfile.txt -if build --profile $HOME/.conan/profiles/myprofile
 
       - name: Configure CMake
         shell: bash
