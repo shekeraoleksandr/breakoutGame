@@ -26,10 +26,6 @@ jobs:
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
 
-      - name: Mode Install
-        shell: bash
-        run: -c tools.system.package_manager:mode=install
-
       - name: Configure CMake
         shell: bash
         working-directory: ${{github.workspace}}/build
