@@ -14,9 +14,16 @@ conan_cmake_run(REQUIRES
         libffi/3.4.2
         BASIC_SETUP CMAKE_TARGETS
         GENERATORS cmake_find_package cmake_paths
-        BUILD missing)
+        BUILD missing
+        OPTIONS qt:shared=True)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
+
+if(APPLE)
+    set(QT_QPA_PLATFORM_PLUGIN_PATH "${Qt6_DIR}/../../../plugins/platforms")
+elseif(UNIX)
+    set(QT_QPA_PLATFORM_PLUGIN_PATH "${Qt6_DIR}/../../../plugins")
+endif()
 
 add_library(coverage_config INTERFACE)
 
