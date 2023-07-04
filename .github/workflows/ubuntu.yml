@@ -26,6 +26,7 @@ jobs:
         uses: turtlebrowser/get-conan@main
         with:
           version: 1.60.0
+          conf: tools.system.package_manager:mode=install
 
       - name: Add Bincrafters Remote
         run: conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
@@ -38,7 +39,7 @@ jobs:
         working-directory: ${{github.workspace}}/build
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_UNIT_TESTS=ON
         env:
-          CC: gcc-9
+          CC:  gcc-9
           CXX: g++-9
 
       - name: Build
