@@ -4,7 +4,7 @@
 Paddle::Paddle() {
 
     dx = 0;
-    image.load("../images/paddle.png");
+    image.load("../res/images/paddle.png");
 
     rect = image.rect();
     resetState();
