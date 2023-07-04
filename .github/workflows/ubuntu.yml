@@ -37,7 +37,7 @@ jobs:
         shell: bash
         working-directory: ${{github.workspace}}/build
         run: |
-          conan install ${{github.workspace}}/build -pr=default --build missing
+          conan install ${{github.workspace}}/build/conanfile.txt -pr=default --build missing
           sed -i 's/tools.build_requires: autotools/tools.system.package_manager:mode=install, autotools/g' ~/.conan/profiles/default
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_UNIT_TESTS=ON
         env:
