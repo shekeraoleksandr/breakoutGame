@@ -19,7 +19,7 @@ jobs:
         shell: bash
         run:  |
           sudo apt update
-          sudo apt install gcc-13.1 g++-13.1
+          sudo apt install gcc-9 g++-9
           sudo apt install libgl1-mesa-dev
 
       - name: Get Conan

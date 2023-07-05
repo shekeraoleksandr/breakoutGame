@@ -15,7 +15,7 @@ conan_cmake_profile(FILEPATH    "${CMAKE_BINARY_DIR}/profile"
                                 arch=x86_64
                                 arch_build=x86_64
                                 compiler=gcc
-                                compiler.version=13.1
+                                compiler.version=9
                                 compiler.libcxx=libstdc++11
                                 build_type=Release
                     OPTIONS     qt:shared=True
