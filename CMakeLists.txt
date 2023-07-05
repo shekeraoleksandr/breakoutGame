@@ -9,12 +9,28 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(conan.cmake)
+conan_cmake_profile(FILEPATH    "${CMAKE_BINARY_DIR}/profile"
+                    SETTINGS    os=Linux
+                                os_build=Linux
+                                arch=x86_64
+                                arch_build=x86_64
+                                compiler=gcc
+                                compiler.version=13.1
+                                compiler.libcxx=libstdc++11
+                                build_type=Release
+                    OPTIONS     qt:shared=True
+                    CONF        "tools.system.package_manager:mode=install"
+                                "tools.system.package_manager:sudo=True"
+                    TOOL_REQUIRES cmake/3.20)
+
 conan_cmake_run(REQUIRES
         qt/6.1.2
         libffi/3.4.2
         BASIC_SETUP CMAKE_TARGETS
         GENERATORS cmake_find_package cmake_paths
         BUILD missing
+        SETTINGS compiler.version=13.1
+        SETTINGS compiler.libcxx=libstdc++11
         OPTIONS qt:shared=True)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
