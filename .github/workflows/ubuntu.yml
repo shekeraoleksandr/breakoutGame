@@ -37,7 +37,7 @@ jobs:
         shell: bash
         working-directory: ${{github.workspace}}/build
         run: |
-          conan install -s compiler.libcxx=libstdc++11 .. --build=missing 
+          conan install -pr=default -s compiler.libcxx=libstdc++11 $GITHUB_WORKSPACE --build=missing
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_UNIT_TESTS=ON
         env:
           CC:  gcc-9
