@@ -20,8 +20,7 @@ conan_cmake_profile(FILEPATH    "${CMAKE_BINARY_DIR}/profile"
                                 build_type=Release
                     OPTIONS     qt:shared=True
                     CONF        "tools.system.package_manager:mode=install"
-                                "tools.system.package_manager:sudo=True"
-                    TOOL_REQUIRES cmake/3.20)
+                                "tools.system.package_manager:sudo=True")
 
 conan_cmake_run(REQUIRES
         qt/6.1.2
@@ -29,9 +28,7 @@ conan_cmake_run(REQUIRES
         BASIC_SETUP CMAKE_TARGETS
         GENERATORS cmake_find_package cmake_paths
         BUILD missing
-        SETTINGS compiler.version=13.1
-        SETTINGS compiler.libcxx=libstdc++11
-        OPTIONS qt:shared=True)
+        PROFILE profile)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
