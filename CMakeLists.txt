@@ -28,6 +28,7 @@ conan_cmake_run(REQUIRES
         BASIC_SETUP CMAKE_TARGETS
         GENERATORS cmake_find_package cmake_paths
         BUILD missing
+        OPTIONS qt:shared=True
         PROFILE profile)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
