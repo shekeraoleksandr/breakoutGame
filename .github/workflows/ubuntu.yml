@@ -47,7 +47,10 @@ jobs:
         shell: bash
         run: cmake --build . --config $BUILD_TYPE
 
+      - name: Install xvfb
+        run: sudo apt install xvfb
+
       - name: Tests
         working-directory: ${{github.workspace}}/build
         shell: bash
-        run: ctest --rerun-failed --output-on-failure
+        run: xvfb-run ctest --rerun-failed --output-on-failure
