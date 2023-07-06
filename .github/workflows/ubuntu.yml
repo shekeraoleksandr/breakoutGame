@@ -21,7 +21,21 @@ jobs:
           sudo apt update
           sudo apt install gcc-9 g++-9
           sudo apt install libgl1-mesa-dev
-          sudo apt-get install libxcb-xinerama0
+
+      - name: Install Xvfb
+        shell: bash
+        run: |
+          sudo apt install xvfb
+
+      - name: Start Xvfb
+        shell: bash
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+
+      - name: Set Display Environment Variable
+        shell: bash
+        run: |
+          export DISPLAY=:99
 
       - name: Get Conan
         uses: turtlebrowser/get-conan@main
@@ -48,10 +62,7 @@ jobs:
         shell: bash
         run: cmake --build . --config $BUILD_TYPE
 
-      - name: Set QT_QPA_PLATFORM to offscreen
-        run: export QT_QPA_PLATFORM=offscreen
-
       - name: Tests
         working-directory: ${{github.workspace}}/build
         shell: bash
-        run: ctest --rerun-failed --output-on-failure
+        run: xvfb-run ctest --rerun-failed --output-on-failure

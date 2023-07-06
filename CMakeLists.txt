@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(breakoutGame)
 
-option(BUILD_UNIT_TESTS "Build unit tests (default OFF)" OFF)
+option(BUILD_UNIT_TESTS "Build unit tests (default OFF)" ON)
 option(CODE_COVERAGE "Enable coverage reporting (default OFF)" OFF)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -15,7 +15,7 @@ conan_cmake_profile(FILEPATH    "${CMAKE_BINARY_DIR}/profile"
                                 arch=x86_64
                                 arch_build=x86_64
                                 compiler=gcc
-                                compiler.version=9
+                                compiler.version=13.1
                                 compiler.libcxx=libstdc++11
                                 build_type=Release
                     OPTIONS     qt:shared=True
@@ -31,12 +31,6 @@ conan_cmake_run(REQUIRES
         PROFILE profile)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
-
-if(APPLE)
-    set(QT_QPA_PLATFORM_PLUGIN_PATH "${Qt6_DIR}/../../../plugins/platforms")
-elseif(UNIX)
-    set(QT_QPA_PLATFORM_PLUGIN_PATH "${Qt6_DIR}/../../../plugins")
-endif()
 
 add_library(coverage_config INTERFACE)
 
@@ -57,6 +51,7 @@ add_subdirectory(include)
 if (BUILD_UNIT_TESTS)
     enable_testing()
     add_subdirectory(test)
-endif()
+endif ()
+
 
 

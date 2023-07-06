@@ -1,7 +1,7 @@
 project(UnitTests LANGUAGES CXX)
 
-include_directories(../src)
-include_directories(../include)
+include_directories(${PROJECT_SOURCE_DIR}src)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -17,22 +17,11 @@ set(SOURCE_FILES
         tests.cpp
         )
 
-find_package(Qt6 COMPONENTS  Widgets Test REQUIRED)
+find_package(Qt6 COMPONENTS Widgets Test REQUIRED)
 
-add_executable(breakout_test WIN32 ${SOURCE_FILES})
-
-if (WIN32)
-    target_link_options(breakout_test PRIVATE "/entry:mainCRTStartup")
-endif()
+add_executable(breakout_test ${SOURCE_FILES})
 
 add_test(NAME breakout_test COMMAND breakout_test)
-
-if (WIN32 OR APPLE)
-    set_tests_properties(breakout_test
-            PROPERTIES
-            ENVIRONMENT "PATH=${CONAN_BIN_DIRS_QT}\;$ENV{PATH}"
-            )
-endif()
 
 target_link_libraries(breakout_test
         PRIVATE
