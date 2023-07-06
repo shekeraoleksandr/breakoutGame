@@ -21,7 +21,6 @@ jobs:
           sudo apt update
           sudo apt install gcc-9 g++-9
           sudo apt install libgl1-mesa-dev
-
       - name: Get Conan
         uses: turtlebrowser/get-conan@main
         with:
@@ -46,11 +45,11 @@ jobs:
         working-directory: ${{github.workspace}}/build
         shell: bash
         run: cmake --build . --config $BUILD_TYPE
-      
-      - name: Install opencv-python-headless
-        run: pip install opencv-python-headless
-        
+
+      - name: Install xvfb
+        run: sudo apt install xvfb
+
       - name: Tests
         working-directory: ${{github.workspace}}/build
         shell: bash
-        run: ctest --rerun-failed --output-on-failure
+        run: xvfb-run ctest --rerun-failed --output-on-failure
