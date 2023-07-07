@@ -9,7 +9,7 @@ This project uses C++20 and Qt 6.1.2.
 
 # Building
 
-First we clone the Github repository:
+First, we clone the GitHub repository:
 
 ```bash
 git clone https://github.com/shekeraoleksandr/breakoutGame.git
@@ -21,13 +21,13 @@ Then create a build folder inside of the repository's folder and navigate into i
 cd breakoutGame && mkdir build && cd build
 ```
 
-Once we've created build directory, we can run Conan and CMake in one step:
+Once we've created the build directory, we can run Conan and CMake in one step:
 
 ```bash
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
-In this case we have configured our build system to compile debug versions of the binaries. Now we can build with the following command:
+In this case, we have configured our build system to compile debug versions of the binaries. Now we can build with the following command:
 
 ```bash
 cmake --build .
@@ -40,9 +40,9 @@ To execute the program:
 
 # Details
 > **Warning**:
-> Qt6 works only with conan version <=2.0.
+> Qt6 works only with the Conan version < 2.0.
 
-To reinstall conan:
+To reinstall Conan:
 ```bash
 pip install --force-reinstall -v "conan==1.60.0"
 ```
@@ -55,7 +55,6 @@ The main problems that I ran into were:
 ```bash
 ERROR: Conflict in wayland/1.21.0:
 'wayland/1.21.0' requires 'libffi/3.4.4' while 'glib/2.73.0' requires 'libffi/3.4.3'.
-To fix this conflict you need to override the package 'libffi' in your root package.
 ```
 
 To fix it I had to specify the version of `libffi` I wanted to use in the root *CMakeLists.txt*:
@@ -132,7 +131,7 @@ conan_cmake_run(REQUIRES
 ## Using a custom library
 The library is called `BreakoutLib` it exist `include/`.
 
-Even though no linking is actually done when builing the library by itself, this line must still be included in the library's CMake file:
+Even though no linking is actually done when building the library by itself, this line must still be included in the library's CMake file:
 
 ```cmake
 target_link_libraries(MyLib PRIVATE
@@ -140,7 +139,7 @@ target_link_libraries(MyLib PRIVATE
 )
 ```
 
-## Unit Tests and Github Actions
+## Unit Tests and GitHub Actions
 I could only get Qt6 to build on Github Actions if I used `ubuntu-latest`.
 
 I faced the `xcb` error and to solve it I specified a virtual display for the CTest execution.
